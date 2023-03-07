@@ -1,0 +1,16 @@
+.button {
+  display: block;
+  width: fit-content;
+  padding: 18px 40px;
+  background-color: $secondary;
+  font-weight: 700;
+  color: $black;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 600ms;
+
+  &:hover {
+    color: $white;
+    background-color: $primary;
+  }
+}

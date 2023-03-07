@@ -1,0 +1,38 @@
+input, textarea {
+
+}
+
+textarea {
+ 
+}
+
+/*input[type=email] {
+  width: 100%;
+  background: transparent;
+  color: #fff;
+  padding: 10px;
+  border: 1px solid white;
+}*/
+
+.wpcf7-acceptance {
+  label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
+}
+
+input[type=checkbox] {
+  width: 20px;
+  margin-right: 10px;
+}
+
+input[type=submit] {
+  width: fit-content;
+  background: $blue;
+  color: $white;
+  font-weight: bold;
+  border: none;
+  padding: 0 40px;
+  cursor: pointer;
+}
