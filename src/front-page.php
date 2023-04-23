@@ -11,7 +11,7 @@ $args = array(
 $posts = new WP_Query($args);
 ?>
 
-<section class="pt-20 pb-20 lg:pb-32 bg-cover bg-center" style="background-image: url(/wp-content/themes/pma/img/bg.webp); filter: grayscale(1);">
+<section class="pt-20 pb-20 lg:pb-32 bg-cover bg-center" style="background-image: url(/wp-content/themes/pma/img/bg.webp);">
     <div class="container mx-auto">
         <div class="grid grid-cols-12 gap-[30px]">
             <?php while ($posts->have_posts()) : $posts->the_post(); ?>

@@ -2,7 +2,7 @@
   display: block;
   width: fit-content;
   padding: 18px 40px;
-  background-color: $secondary;
+  background-color: $primary;
   font-weight: 700;
   color: $black;
   line-height: 1;
@@ -11,6 +11,6 @@
 
   &:hover {
     color: $white;
-    background-color: $primary;
+    background-color: $black;
   }
 }

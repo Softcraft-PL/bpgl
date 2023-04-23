@@ -1,10 +1,10 @@
-<?php /* Template Name: Serie */ ?>
+<?php /* Template Name: Monografie */ ?>
 
 <?php get_header(); ?>
 
 <?php
 $categories = get_terms(
-    array('nazwy-serii'),
+    array('nazwy-monografii'),
     array(
         'hide_empty' => false,
         'orderby' => 'name',
@@ -18,7 +18,7 @@ $categories = get_terms(
         <div class="grid grid-cols-12 gap-[30px]">
             <div class="col-span-12 lg:col-span-9">
                 <h1 class="text-3xl lg:text-4xl font-bold m-0"><?php echo get_the_title(); ?></h1>
-                <p class="font-light mt-6 mb-20">Serie najlepsze, bo nasze</p>
+                <p class="font-light mt-6 mb-20">Monografie najlepsze, bo nasze</p>
             </div>
         </div>
 
@@ -27,12 +27,12 @@ $categories = get_terms(
 
             <?php
             $args = array(
-                'post_type' => 'serie',
+                'post_type' => 'monografie',
                 'posts_per_page' => 4,
                 'post_status' => 'publish',
                 'tax_query' => array(
                     array(
-                        'taxonomy' => 'nazwy-serii',
+                        'taxonomy' => 'nazwy-monografii',
                         'field'    => 'slug',
                         'terms'    => $category->slug,
                     ),
@@ -65,11 +65,10 @@ $categories = get_terms(
                     </div>
                 <?php endwhile; ?>
                 </div>
-                <a href="/<?php echo 'nazwy-serii/'.$category->slug; ?>" class="button mb-32">Zobacz więcej</a>
+                <a href="/<?php echo 'nazwy-monografii/'.$category->slug; ?>" class="button mb-32">Zobacz więcej</a>
             <?php endif; ?>
             
             <?php wp_reset_postdata(); ?>
-                   
 
         <?php endforeach; ?>
         <?php endif; ?>
