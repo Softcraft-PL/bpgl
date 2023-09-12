@@ -43,10 +43,11 @@
         display: block;
         padding: 0;
         text-align: center;
+        list-style: none;
 
         &.current_page_item {
           > a {
-            //color: $primary;
+            color: $black;
           }
         }
 
@@ -125,7 +126,7 @@
           background: #f4f4f4;
 
           li {
-            height: 54px;;
+            // height: 54px;;
 
             a {
               display: flex;
@@ -133,6 +134,7 @@
               align-items: center;
               height: 100%;
               width: 100%;
+              padding: 10px 0;
             }
           }
         }
@@ -145,7 +147,7 @@
     padding: 22px 9px 22px 9px;
     cursor: pointer;
     z-index: 5;
-    background: $blue;
+    background: $primary;
     border-radius: 5px;
 
     @media (min-width: $resolution-xl) {

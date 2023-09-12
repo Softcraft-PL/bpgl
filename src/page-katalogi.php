@@ -1,10 +1,10 @@
-<?php /* Template Name: Monografie */ ?>
+<?php /* Template Name: Katalogi */ ?>
 
 <?php get_header(); ?>
 
 <?php
 $categories = get_terms(
-    array('nazwy-monografii'),
+    array('nazwy-katalogow'),
     array(
         'hide_empty' => false,
         'orderby' => 'name',
@@ -27,12 +27,12 @@ $categories = get_terms(
 
             <?php
             $args = array(
-                'post_type' => 'monografie',
+                'post_type' => 'katalogi',
                 'posts_per_page' => 4,
                 'post_status' => 'publish',
                 'tax_query' => array(
                     array(
-                        'taxonomy' => 'nazwy-monografii',
+                        'taxonomy' => 'nazwy-katalogow',
                         'field'    => 'slug',
                         'terms'    => $category->slug,
                     ),
@@ -65,10 +65,11 @@ $categories = get_terms(
                     </div>
                 <?php endwhile; ?>
                 </div>
-                <a href="/<?php echo 'nazwy-monografii/'.$category->slug; ?>" class="button mb-32">Zobacz więcej</a>
+                <a href="/<?php echo 'nazwy-katalogow/'.$category->slug; ?>" class="button mb-32">Zobacz więcej</a>
             <?php endif; ?>
             
             <?php wp_reset_postdata(); ?>
+                   
 
         <?php endforeach; ?>
         <?php endif; ?>

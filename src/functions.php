@@ -3,14 +3,14 @@
 add_filter( 'wp_enqueue_scripts', 'remove_shit', PHP_INT_MAX );
 
 function remove_shit() {
-    wp_dequeue_style('wp-block-library');
+    //wp_dequeue_style('wp-block-library');
     //wp_dequeue_style('contact-form-7');
 
     //add_filter('wpcf7_load_js', '__return_false');
     //add_filter('wpcf7_load_css', '__return_false');
 
-    wp_dequeue_script('contact-form-7');
-    wp_dequeue_style('contact-form-7');
+    //wp_dequeue_script('contact-form-7');
+    //wp_dequeue_style('contact-form-7');
 
     //wp_deregister_script('jquery');
 }

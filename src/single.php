@@ -1,21 +1,21 @@
 <?php get_header(); ?>
 
 <section class="pt-10 lg:pt-20 pb-20 lg:pb-32">
-    <div class="container mx-auto">
+    <div class="container mx-auto px-4">
         <?php while (have_posts()) : the_post(); ?>
             <article>
                 <div class="grid grid-cols-12 lg:gap-10">
                     <div class="col-span-12 lg:col-span-7">
                         <div class="flex flex-col justify-center flex-1">
-                            <time class="block text-greyDark mb-4"><?php echo apply_filters('the_date', get_the_date()); ?></time>
-                            
+                            <time class="block text-greyDark"><?php echo apply_filters('the_date', get_the_date()); ?></time>
+                            <div class="mb-4">Autor wpisu: <?php the_author(); ?></div>
                             <h2 class="text-xl lg:text-3xl mt-0 mb-3"><?php the_title(); ?></h2>
                             
                             <?php if (has_excerpt()): ?>
                             <div class="font-light text-lg"><?php the_excerpt(); ?></div>
                             <?php endif; ?>
                             <?php if (get_field('author')): ?>
-                            <div class="font-light mb-2">Autor: <?php echo get_field('author') ?></div>
+                            <div class="font-light mb-2">Autor wpisu: <?php echo get_field('author') ?></div>
                             <?php endif; ?>
                             <?php if (get_field('pages')): ?>
                             <div class="font-light mb-2">Liczba stron: <?php echo get_field('pages') ?></div>

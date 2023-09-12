@@ -5,11 +5,10 @@
 <?php $term = get_queried_object(); ?>
 
 <section class="py-20 lg:pb-32"> 
-    <div class="container mx-auto">
+    <div class="container mx-auto px-4">
         <div class="grid grid-cols-12 gap-[30px]">
             <div class="col-span-12 lg:col-span-9">
-                <h1 class="text-3xl lg:text-4xl font-bold m-0"><?php echo get_the_title(); ?></h1>
-                <p class="font-light mt-6 mb-20">Czasopisma najlepsze, bo naszehjhj</p>
+                <h1 class="text-3xl lg:text-4xl font-bold mt-0 mb-6"><?php single_term_title(); ?></h1>
             </div>
         </div>
 
