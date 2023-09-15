@@ -51,7 +51,7 @@ $categories = get_terms(
                     <div class="col-span-12 lg:col-span-3 flex flex-col mb-16">
                         <?php the_post_thumbnail(array(500, 348), array('class' => 'border-radius-5 object-cover w-full h-[500px]')); ?>
                         <h2 class="text-lg font-bold mt-4 mb-2 leading-5"><?php the_title(); ?></h2>
-                        <div class="text-sm flex-grow font-light leading-4"><?php echo wp_trim_words(get_the_content(), 100, '...' ); ?></div>
+                        <div class="text-sm flex-grow font-light leading-4"><?php echo get_the_content(); ?></div>
                         <div class="flex mt-2">
                             <?php if (get_field('pdf')): ?>
                                 <?php $file = get_field('pdf'); ?>
