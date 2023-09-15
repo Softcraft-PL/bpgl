@@ -65,7 +65,7 @@ $categories = get_terms(
                     </div>
                 <?php endwhile; ?>
                 </div>
-                <a href="/<?php echo 'nazwy-katalogow/'.$category->slug; ?>" class="button mb-32">Zobacz więcej</a>
+                <a href="/<?php echo 'nazwy-innych-publikacji/'.$category->slug; ?>" class="button mb-32">Zobacz więcej</a>
             <?php endif; ?>
             
             <?php wp_reset_postdata(); ?>
