@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<section class="py-20 lg:pb-32">
+<section class="content py-20 lg:pb-32">
     <div class="container mx-auto px-4 grid grid-cols-12 gap-8">
         <div class="col-span-12 lg:col-span-8">
             <?php while (have_posts()) : the_post(); ?>
