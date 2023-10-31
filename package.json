@@ -1,10 +1,10 @@
 {
-  "name": "pma",
+  "name": "bpgl",
   "version": "1.0.0",
-  "description": "Wydawnictwo PMA",
+  "description": "BPGL",
   "main": "''",
   "dependencies": {
-    "npm": "^8.19.1"
+    "npm": "^10.2.1"
   },
   "devDependencies": {
     "gulp": "^4.0.2",
@@ -16,9 +16,9 @@
     "gulp-uglify-es": "^3.0.0",
     "gulp-watch": "^5.0.1",
     "gulp-webp": "^4.0.1",
-    "node-sass": "^7.0.1",
-    "postcss-import": "^15.0.0",
-    "tailwindcss": "^3.1.8"
+    "node-sass": "^9.0.0",
+    "postcss-import": "^15.1.0",
+    "tailwindcss": "^3.3.5"
   },
   "scripts": {
     "dev": "cross-env NODE_ENV='development' gulp dev",
@@ -26,12 +26,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PatrykJankowski/pma.git"
+    "url": "git+https://github.com/Softcraft-PL/bpgl.git"
   },
   "author": "Softcraft – Patryk Jankowski",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/PatrykJankowski/pma/issues"
+    "url": "https://github.com/Softcraft-PL/bpgl/issues"
   },
-  "homepage": "https://github.com/PatrykJankowski/pma#readme"
+  "homepage": "https://github.com/Softcraft-PL/bpgl#readme"
 }
