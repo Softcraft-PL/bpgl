@@ -4,7 +4,7 @@
     <div class="container mx-auto px-4 grid grid-cols-12 gap-8">
         <div class="col-span-12 lg:col-span-8">
             <?php while (have_posts()) : the_post(); ?>
-                <h1 class="text-2xl mb-4 font-bold"><?php the_title(); ?></h1>
+                <h1 class="text-2xl mb-4"><?php the_title(); ?></h1>
                 <?php the_content(); ?>
             <?php endwhile; ?>
         </div>

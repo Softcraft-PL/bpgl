@@ -39,7 +39,7 @@
 
       > li {
         height: 100%;
-        line-height: 44px;
+        line-height: 48px;
         display: block;
         padding: 0;
         text-align: center;
@@ -47,13 +47,14 @@
 
         &.current_page_item {
           > a {
-            color: $primary;
+            color: $black;
           }
         }
 
         a {
-          @include font-size(16);
+          @include font-size(18);
           display: block;
+          margin-bottom: $s;
           color: $text-color;
           text-transform: uppercase;
           font-weight: 400;
@@ -105,12 +106,6 @@
           font-weight: 900;
         }*/
 
-        &.current_page_item, &.current-menu-ancestor {
-          > a {
-            color: $primary;
-          }
-        }
-
         a {
           height: 100%;
           display: flex;
@@ -131,13 +126,7 @@
           background: #f4f4f4;
 
           li {
-            // height: 54px;
-
-            &.current_page_item {
-              > a {
-                color: $primary;
-              }
-            }
+            // height: 54px;;
 
             a {
               display: flex;

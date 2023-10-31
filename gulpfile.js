@@ -50,9 +50,7 @@ gulp.task('json', function () {
 
 gulp.task('images', function () {
     return gulp.src('src/img/*')
-        .pipe(webp({
-            quality: 80,
-          }))
+        .pipe(webp())
         .pipe(gulp.dest(path + 'img'))
 });
 
