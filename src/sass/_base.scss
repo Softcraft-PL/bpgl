@@ -1,6 +1,6 @@
 html {
-  font-family: 'Lato', sans-serif;
-  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
 }
 
 body {
@@ -16,7 +16,7 @@ main {
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto Slab', sans-serif;
 }
 
 a {
@@ -33,6 +33,10 @@ p {
   }
 }
 
+input::file-selector-button {
+ background-color: transparent;
+}
+
 .content ol li {
   list-style: decimal;
   margin: 0 0 0 20px;
@@ -42,7 +46,6 @@ p {
   list-style: disc;
   margin: 0 0 0 20px;
 }
-
 
 .visually-hidden {
   clip: rect(0 0 0 0);

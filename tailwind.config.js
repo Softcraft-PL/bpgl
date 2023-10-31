@@ -10,7 +10,7 @@ module.exports = {
       'blue': '#0952D2',
       'yellow': '#FDC10B',
       'red': '#F01414',
-      'primary': '#0952D2',
+      'primary': '#f3701d',
       'secondary': '#FDC10B',
       'text-color': '#2A2A2A'
     },

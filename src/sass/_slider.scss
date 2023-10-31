@@ -1,0 +1,224 @@
+.slider {
+  position: relative;
+  padding: 0;
+
+  &__header {
+    margin: 0 0 $s;
+    color: $white;
+    @include font-size(24);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.025em;
+
+    @media (min-width: $resolution-lg) {
+      @include font-size(52);
+    }
+  }
+
+  &__dsc {
+    margin-bottom: $s;
+    @include font-size(18);
+    font-weight: 300;
+    line-height: 1.2;
+    color: $white;
+
+    @media (min-width: $resolution-lg) {
+      @include font-size(20);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    z-index: -1;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* Slideshow container */
+  .slideshow-container {
+    position: relative;
+    margin: auto;
+    height: 550px;
+
+    @media (min-width: $resolution-lg) {
+      height: 550px;
+    }
+  }
+
+  /* Hide the images by default */
+  .slide {
+    display: none;
+    height: 100%;
+
+    &:before {
+      content: " ";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image: url(/wp-content/themes/rehability/img/hero-bg.webp);
+      background-size: cover;
+      background-position: center;
+    }
+  }
+
+  /* Next & previous buttons */
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    bottom: 100px;
+    width: 48px;
+    height: 48px;
+    padding: 0 0 0 14px;
+    color: $white;
+    @include font-size(30);
+    transition: 0.6s ease;
+    border: 2px solid $white;
+    border-radius: 50%;
+    user-select: none;
+
+    @media (min-width: $resolution-md) {
+      width: 80px;
+      height: 80px;
+      padding: 16px 0 0 28px;
+    }
+  }
+
+  /* Position the "next button" to the right */
+  .next {
+    right: calc(50% - 72px);
+
+    @media (min-width: $resolution-md) {
+      right: 20%;
+    }
+  }
+
+  .prev {
+    right: 50%;
+    transform: translateX(-50%);
+
+    @media (min-width: $resolution-md) {
+      right: calc(20% + 100px);
+      transform: translateX(0);
+    }
+  }
+
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(243,112,29, 0.6);
+  }
+
+  /* Caption text */
+  .text {
+    position: absolute;
+    top: 140px;
+    width: 100%;
+    max-width: calc(100% - 60px);
+    @include font-size(30);
+    line-height: 1.4;
+    font-family: Spectral, sans-serif;
+
+    @media (min-width: 640px) {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    @media only screen and (min-width: $resolution-md) {
+      @include font-size(46);
+      line-height: 50px;
+    }
+
+    @media only screen and (min-width: $resolution-lg) {
+      transform: translateY(-50%);
+      top: 50%;
+    }
+  }
+
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+
+  .dots {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: -40px;
+
+    @media only screen and (min-width: 600px) {
+      margin-top: -60px;
+    }
+  }
+
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 14px;
+    width: 14px;
+    margin: 0 10px;
+    border: 1px solid $white;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+
+  .active {
+    background-color: #f3701d;
+  }
+
+  .dot:hover {
+    background-color: $white;
+  }
+
+  /* Fading animation */
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+
+  @-webkit-keyframes fade {
+    from {
+      opacity: .4
+    }
+    to {
+      opacity: 1
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: .4
+    }
+    to {
+      opacity: 1
+    }
+  }
+}
+
+
+.container-slider {
+  position: absolute;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 0 30px;
+
+  @media (min-width: 640px) {
+    padding: 0;
+  }
+
+  @media (min-width: $resolution-lg) {
+    padding: 0 50px;
+  }
+
+  @media (min-width: $resolution-xxl) {
+    padding: 0;
+  }
+}
