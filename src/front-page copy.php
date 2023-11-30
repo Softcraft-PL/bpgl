@@ -39,19 +39,19 @@
         ?>
     </div>
 
-    <!-- Next and previous buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    <?php $slideCount = count($slides); echo $slideCount; ?>
+    <? if ($slideCount > 1) : ?>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
-    <!-- The dots/circles -->
-    <div class="dots">
-        <?php
-        $slideCount = count($slides);
-        for ($i = 1; $i <= $slideCount; $i++) {
-            echo '<span class="dot" onclick="currentSlide(' . $i . ')"></span>';
-        }
-        ?>
-    </div>
+        <div class="dots">
+            <?php
+            for ($i = 1; $i <= $slideCount; $i++) {
+                echo '<span class="dot" onclick="currentSlide(' . $i . ')"></span>';
+            }
+            ?>
+        </div>
+    <?php endif; ?>
 </section>
 
 <script>
@@ -101,7 +101,7 @@ $articleCounter = 1;
 ?>
 
 <div class="pt-20 pb-20">
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto px-[16px]">
         <div class="grid grid-cols-12 gap-[30px]">
             <div class="col-span-12 lg:col-span-9">
                 <h1 class="text-2xl font-bold m-0 mb-6">Aktualności</h1>
@@ -114,13 +114,17 @@ $articleCounter = 1;
                     <section class="bg-[#f2f0ee] flex-1 md:flex" style="background: url(/wp-content/themes/bpgl/img/bg_books.webp); background-size:cover; color: white; padding: 1rem; flex-direction: column;">
                         <h2 class="text-4xl mb-8">Aktualne godziny otwarcia</h2>
                         <div class="grid grid-cols-2 gap-4">
+                            <?php
+                                $branch1 = get_field('branch_1', 225);
+                                $branch2 = get_field('branch_2', 225);
+                            ?>
                             <div>
                                 <h3 class="text-2xl mb-2">Linia</h3>
-                                <p class="text-lg">poniedziałek-piątek:<br>9:00-17:00<br><br>pierwsza sobota miesiąca:<br>10:00-14:00</p>
+                                <p class="text-lg"><?php echo $branch1['hours_1']; ?><br><br><?php echo $branch1['hours_2']; ?></p>
                             </div>
                             <div>
                                 <h3 class="text-2xl mb-2">Strzepcz</h3>
-                                <p class="text-lg">poniedziałek-piątek:<br>9:00-17:00<br><br>pierwsza sobota miesiąca:<br>10:00-14:00</p>
+                                <p class="text-lg"><?php echo $branch2['hours_1']; ?><br><br><?php echo $branch2['hours_2']; ?></p>
                             </div>
                         </div>
                     </section>
@@ -173,7 +177,7 @@ $articleCounter = 1;
 </div>
 
 <section class="pt-20 pb-20">
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto px-[16px]">
         <div class="grid grid-cols-12 gap-[30px]">
             <div class="col-span-12 lg:col-span-9">
                 <h1 class="text-2xl font-bold m-0 mb-6">Aktualności</h1>
@@ -230,14 +234,13 @@ $args = array(
 $books = new WP_Query($args);
 ?>
 
-<section class="pt-20 pb-20">
-    <div class="container mx-auto px-4">
+<section class="pt-20 pb-20 bg-[#f2f0ee]">
+    <div class="container mx-auto px-[16px]">
         <div class="grid grid-cols-12 gap-[30px]">
             <div class="col-span-12 lg:col-span-9">
                 <h1 class="text-2xl font-bold m-0 mb-6">Nowości książkowe</h1>
             </div>
         </div>
-
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
             <?php while ($books->have_posts()) : $books->the_post(); ?>

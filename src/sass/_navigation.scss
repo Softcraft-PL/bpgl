@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  height: 100px;
+  height: 120px;
   background-color: $white;
 
   @media (min-width: $resolution-xl) {
@@ -45,14 +45,14 @@
         text-align: center;
         list-style: none;
 
-        &.current_page_item {
+        &.current_page_item, &.current_page_parent {
           > a {
             color: $primary;
           }
         }
 
         a {
-          @include font-size(16);
+          @include font-size(18);
           display: block;
           color: $text-color;
           text-transform: uppercase;
@@ -97,6 +97,11 @@
           color: $white;
           line-height: 1;
           cursor: pointer;
+
+          &:hover {
+            color: $white;
+            background-color: #fd6809;
+          }
         }
 
         /*&:nth-last-of-type(2) a {
@@ -105,7 +110,7 @@
           font-weight: 900;
         }*/
 
-        &.current_page_item, &.current-menu-ancestor {
+        &.current_page_item, &.current-menu-ancestor, &.current_page_parent {
           > a {
             color: $primary;
           }
@@ -119,21 +124,28 @@
           font-weight: 400;
           color: $text-color;
           text-align: center;
+          transition: all 200ms;
+
+          &:hover {
+            color: $primary;
+            transition: all 200ms;
+          }
         }
         
         .sub-menu {
           display: none;
           position: absolute;
-          top: 54px;
+          top: 52px;
           padding: 0;
           width: 100%;
           list-style: none;
           background: #f4f4f4;
+          z-index: 1;
 
           li {
             // height: 54px;
 
-            &.current_page_item {
+            &.current_page_item, &.current_page_parent {
               > a {
                 color: $primary;
               }

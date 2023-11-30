@@ -1,12 +1,23 @@
+<?php /* Template Name: Nowości książkowe */ ?>
+
 <?php get_header(); ?>
 
-<?php $term = get_queried_object(); ?>
+<?php
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+$args = array(
+    'post_type' => 'ksiazki',
+    'post_status' => 'publish',
+    'posts_per_page' => 4,
+    'paged' => $paged,
+);
+$books = new WP_Query($args);
+?>
 
-<section class="py-20 lg:pb-32"> 
+<section class="pt-20 pb-20">
     <div class="container mx-auto px-[16px]">
-        <div class="grid grid-cols-12 gap-[30px]">
+        <div class="grid grid-cols-12 gap-5">
             <div class="col-span-12 lg:col-span-9 mb-10">
-                <h1 class="text-3xl lg:text-4xl font-bold mt-0 mb-10">Więcej dla: <?php single_term_title(); ?></h1>
+                <h1 class="text-4xl font-bold m-0 mb-10">Nowości książkowe</h1>
                 <?php
                     $tags = get_terms(array(
                         'taxonomy' => 'tagi',
@@ -21,23 +32,6 @@
                 ?>
             </div>
         </div>
-
-        <?php
-        $args = array(
-            'post_status' => 'publish',
-            'tax_query' => array(
-                array(
-                    'taxonomy' => $term->taxonomy,
-                    'field'    => 'slug',
-                    'terms'    => $term->slug,
-                ),
-            ),
-            //'ignore_sticky_posts' => true
-        );
-        
-        ?>
-
-        <?php $books = new WP_Query($args); ?>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             <?php while ($books->have_posts()) : $books->the_post(); ?>
@@ -73,11 +67,9 @@
             </article>
 
             <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
 
-            </div>
-
-        <?php wp_reset_postdata(); ?>
-
+        </div>
     </div>
 </section>
 

@@ -110,12 +110,12 @@
     /* Caption text */
     .text {
       position: absolute;
-      top: 140px;
+      top: 90px;
       width: 100%;
       max-width: calc(100% - 60px);
       @include font-size(30);
       line-height: 1.4;
-      font-family: Spectral, sans-serif;
+      font-family: 'Roboto', sans-serif;
   
       @media (min-width: 640px) {
         width: 100%;

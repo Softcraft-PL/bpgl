@@ -20,15 +20,15 @@
                         <div class="container container-slider">
                             <div class="text p-4 bg-[rgba(0,0,0,.5)]">
                                 <?php if ($slide['slide_title']) : ?>
-                                    <h2 class="text-white text-4xl mb-4"><?php echo esc_html($slide['slide_title']); ?></h1>
+                                    <h2 class="text-white text-3xl lg:text-4xl mb-4"><?php echo esc_html($slide['slide_title']); ?></h1>
                                 <?php endif; ?>
 
                                 <?php if ($slide['slide_text']) : ?>
                                     <div class="slider__dsc"><?php echo esc_html($slide['slide_text']); ?></div>
                                 <?php endif; ?>
 
-                                <?php if (isset($slide['slide_button'])) : ?>
-                                    <a class="bg-[#f3701d] text-white text-2xl p-2" href="<?php echo esc_url($slide['slide_button']['url']); ?>" target="<?php echo esc_attr($slide['slide_button']['target']); ?>"><?php echo esc_html($slide['slide_button']['title']); ?></a>
+                                <?php if (isset($slide['slide_button']) && is_array($slide['slide_button'])) : ?>
+                                    <a class="bg-[#f3701d] text-white text-lg lg:text-xl p-2" href="<?php echo esc_url($slide['slide_button']['url']); ?>" target="<?php echo esc_attr($slide['slide_button']['target']); ?>"><?php echo esc_html($slide['slide_button']['title']); ?></a>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -39,19 +39,31 @@
         ?>
     </div>
 
-    <!-- Next and previous buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-    <!-- The dots/circles -->
-    <div class="dots">
-        <?php
+    <?php
         $slideCount = count($slides);
-        for ($i = 1; $i <= $slideCount; $i++) {
-            echo '<span class="dot" onclick="currentSlide(' . $i . ')"></span>';
+        $slidesWithTitle = 0;
+
+        for ($i = 0; $i < $slideCount; $i++) {
+            if (!empty($slides[$i]['slide_title'])) {
+                $slidesWithTitle++;
+            }
         }
-        ?>
-    </div>
+
+        if ($slidesWithTitle > 1) {
+            echo '<a class="prev" onclick="plusSlides(-1)">&#10094;</a>';
+            echo '<a class="next" onclick="plusSlides(1)">&#10095;</a>';
+
+            echo '<div class="dots">';
+            $slidesWithTitle = 0;
+            for ($i = 0; $i < $slideCount; $i++) {
+                if (!empty($slides[$i]['slide_title'])) {
+                    $slidesWithTitle++;
+                    echo '<span class="dot" onclick="currentSlide(' . $slidesWithTitle . ')"></span>';
+                }
+            }
+            echo '</div>';
+        }
+    ?>
 </section>
 
 <script>
@@ -101,32 +113,38 @@ $articleCounter = 1;
 ?>
 
 <div class="pt-20 pb-20">
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto px-[16px]">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <section class="bg-[#f2f0ee] flex-1 md:flex" style="background: url(/wp-content/themes/bpgl/img/bg_books.webp); background-size:cover; color: white; padding: 1rem; flex-direction: column;">
-                <h1 class="text-4xl mb-8">Aktualne godziny otwarcia</h2>
+                <h1 class="text-3xl lg:text-4xl mb-8">Aktualne godziny otwarcia</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <?php
+                        $branch1 = get_field('branch_1', 225);
+                        $branch2 = get_field('branch_2', 225);
+                    ?>
                     <div>
-                        <h3 class="text-2xl mb-2">Linia</h3>
-                        <p class="text-lg">poniedziałek-piątek:<br>9:00-17:00<br><br>pierwsza sobota miesiąca:<br>10:00-14:00</p>
+                        <h3 class="text-xl lg:text-2xl mb-2">Linia</h3>
+                        <p class="text-lg"><?php echo $branch1['hours_1']; ?><br><br><?php echo $branch1['hours_2']; ?></p>
                     </div>
                     <div>
-                        <h3 class="text-2xl mb-2">Strzepcz</h3>
-                        <p class="text-lg">poniedziałek-piątek:<br>9:00-17:00<br><br>pierwsza sobota miesiąca:<br>10:00-14:00</p>
+                        <h3 class="text-xl lg:text-2xl mb-2">Strzepcz</h3>
+                        <p class="text-lg"><?php echo $branch2['hours_1']; ?><br><br><?php echo $branch2['hours_2']; ?></p>
                     </div>
                 </div>
             </section>
             <section style="padding: 1rem;" class="bg-[#f2f0ee] flex-1 md:flex">
-                <a href="https://m6175.lib.mol.pl" target="_blank" title="Katalog biblioteczny Libra" style="width: 100%;display: flex;/*! justify-content: center; */align-items: center;text-align: center;flex-direction: column;">
-                    <h1 class="text-4xl text-[#f3701d] mb-8">Katalog biblioteczny online</h2><img alt="Katalog Libra" style="height: 100px; max-width: 100%; object-fit: contain" src="https://m6175.lib.mol.pl/themes/medley/img/libra_net.svg">
+                <a href="https://m6175.lib.mol.pl" target="_blank" title="Katalog biblioteczny" class="flex flex-col w-full">
+                    <h1 class="text-3xl lg:text-4xl text-[#f3701d] mb-8 lg:mb-0">Katalog biblioteczny online</h2>
+                    <img alt="Katalog Libra" class="m-auto" src="https://m6175.lib.mol.pl/themes/medley/img/libra_net.svg">
                 </a>     
             </section>
         </div>
     </div>
 </div>
 
+
 <section class="pt-20 pb-20">
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto px-[16px]">
         <div class="grid grid-cols-12 gap-5">
             <div class="col-span-12 lg:col-span-9">
                 <h1 class="text-2xl font-bold m-0 mb-6">Aktualności</h1>
@@ -141,7 +159,7 @@ $articleCounter = 1;
                 </div>
                 <div class="flex flex-col xl:w-1/2 p-4 xl:pl-4">
                     <div class="border-l-4 border-[#f3701d] pl-4">
-                        <p class="text-sm text-[#f3701d]">
+                        <div class="text-sm text-[#f3701d]">
                             <?php
                             $tags = get_the_tags();
                             if ($tags) {
@@ -152,16 +170,16 @@ $articleCounter = 1;
                                 echo implode(', ',  $tag_links);
                             }
                             ?>
-                        </p>
-                        <h2 class="text-lg font-bold text-black">
+                        </div>
+                        <h2 class="text-xl font-bold text-black hover:text-primary transition-all duration-200">
                             <a href="<?php the_permalink(); ?>">
                                 <?php the_title(); ?>
                             </a>
                         </h2>
                         <time datetime="<?php echo get_the_date('c'); ?>" class="flex mb-2 text-md text-sm"><?php echo get_the_date(); ?></time>
                     </div>
-                    <p class="flex-grow text-black pl-4"> <?php echo wp_trim_words(get_the_content(), 30, '...'); ?></p>
-                    <a class="mt-4 font-bold text-black flex pl-4" href="<?php the_permalink(); ?>">Zobacz więcej <svg class="ml-1 mt-[3px]" width="22" height="22" fill="#2A2A2A" xmlns="http://www.w3.org/2000/svg"><path d="M4.79 16.605a.75.75 0 0 1-.067-.984l.067-.077L15.397 4.938a.75.75 0 0 1 1.128.984l-.067.077L5.85 16.605a.75.75 0 0 1-1.06 0Z" fill="#2A2A2A"/><path d="M7.391 6.236a.75.75 0 0 1-.114-1.492l.11-.008 8.538-.018a.75.75 0 0 1 .744.64l.008.111-.018 8.538a.75.75 0 0 1-1.492.108l-.008-.11.016-7.786-7.784.017Z" fill="#2A2A2A"/></svg></a>
+                    <p class="flex-grow text-black-light font-light pl-4 mt-1"><?php echo wp_trim_words(get_the_content(), 30, '...'); ?></p>
+                    <a class="more mt-4 font-bold text-black hover:text-primary transition-all duration-200 flex pl-4" href="<?php the_permalink(); ?>">Zobacz więcej <svg class="ml-1 mt-[3px]" width="22" height="22" fill="#2A2A2A" xmlns="http://www.w3.org/2000/svg"><path d="M4.79 16.605a.75.75 0 0 1-.067-.984l.067-.077L15.397 4.938a.75.75 0 0 1 1.128.984l-.067.077L5.85 16.605a.75.75 0 0 1-1.06 0Z" fill="#2A2A2A"/><path d="M7.391 6.236a.75.75 0 0 1-.114-1.492l.11-.008 8.538-.018a.75.75 0 0 1 .744.64l.008.111-.018 8.538a.75.75 0 0 1-1.492.108l-.008-.11.016-7.786-7.784.017Z" fill="#2A2A2A"/></svg></a>
                 </div>
             </article>
             <?php endwhile; ?>
@@ -182,8 +200,9 @@ $args = array(
 $books = new WP_Query($args);
 ?>
 
-<section class="pt-20 pb-20">
-    <div class="container mx-auto px-4">
+
+<section class="pt-20 pb-20 bg-[#f2f0ee]">
+    <div class="container mx-auto px-[16px]">
         <div class="grid grid-cols-12 gap-5">
             <div class="col-span-12 lg:col-span-9">
                 <h1 class="text-2xl font-bold m-0 mb-6">Nowości książkowe</h1>
@@ -224,6 +243,34 @@ $books = new WP_Query($args);
             </article>
 
             <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="pt-20 pb-20">
+    <div class="container mx-auto px-[16px]">
+        <div class="grid grid-cols-12 gap-5">
+            <div class="col-span-12 lg:col-span-9">
+                <h1 class="text-2xl font-bold m-0 mb-6">Nasi partnerzy</h1>
+            </div>
+        </div>
+        <div class="flex flex-wrap justify-center items-center gap-4">
+            <?php
+            for ($i = 1; $i <= 10; $i++) {
+                $logo = get_field('logo_' . $i);
+                if ($logo && $logo['logo']['url']) { ?>
+                    <div class="p-4">
+                        <?php if (!empty($logo['url'])) : ?><a href="<?php echo esc_url($logo['url']); ?>" target="_blank"><?php endif; ?>
+                            <img src="<?php echo esc_url($logo['logo']['url']); ?>" alt="Image" class="w-full h-[100px] object-contain rounded-lg">
+                        <?php if (!empty($logo['url'])) : ?></a><?php endif; ?>
+                    </div>
+            <?php
+                }
+            }
+            ?>
         </div>
     </div>
 </section>

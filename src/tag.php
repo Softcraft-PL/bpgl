@@ -1,21 +1,12 @@
 <?php get_header(); ?>
 
-<?php
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$args = array(
-    'post_type' => 'post',
-    'post_status' => 'publish',
-    'posts_per_page' => 6,
-    'paged' => $paged,
-);
-$posts = new WP_Query($args);
-?>
+<?php $term = get_queried_object(); ?>
 
-<section class="py-20 lg:pb-32">
-    <div class="container mx-auto">
+<section class="py-20 lg:pb-32"> 
+    <div class="container mx-auto px-[16px]">
         <div class="grid grid-cols-12 gap-[30px]">
             <div class="col-span-12 lg:col-span-9 mb-10">
-                <h1 class="text-3xl lg:text-4xl font-bold mt-0 mb-10">Aktualności</h1>
+                <h1 class="text-3xl lg:text-4xl font-bold mt-0 mb-10">Więcej dla: <?php single_term_title(); ?></h1>
                 <?php
                     $tags = get_terms(array(
                         'taxonomy' => 'post_tag',
@@ -31,7 +22,24 @@ $posts = new WP_Query($args);
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <?php
+        $args = array(
+            'post_status' => 'publish',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => $term->taxonomy,
+                    'field'    => 'slug',
+                    'terms'    => $term->slug,
+                ),
+            ),
+            //'ignore_sticky_posts' => true
+        );
+        ?>
+
+        <?php $posts = new WP_Query($args); ?>
+
+        <?php if($posts->have_posts()) : ?>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
             <?php while ($posts->have_posts()) : $posts->the_post(); ?>
                 <article class="bg-[#f2f0ee] xl:flex">
                     <div class="xl:w-1/2">
@@ -63,8 +71,10 @@ $posts = new WP_Query($args);
                     </div>
                 </article>
             <?php endwhile; ?>
-            <?php wp_reset_postdata(); ?>
-        </div>
+            </div>
+        <?php endif; ?>
+
+        <?php wp_reset_postdata(); ?>
 
     </div>
 </section>

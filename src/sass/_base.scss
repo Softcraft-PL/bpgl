@@ -1,9 +1,46 @@
 html {
-  font-family: 'Lato', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
+
+  &.zoom {
+    font-size: 20px;
+
+    .navbar__nav-desktop > ul > li {
+      @media (min-width: $resolution-xxl) {
+        margin-left: 1rem;
+      }
+    }
+  }
+
+  &.contrast {
+    background: black !important;
+    color: yellow !important;
+
+    h1, h2, h3, h4, h5, a, p, div {
+      color: yellow !important;
+    }
+
+    header, section:not(.slider), article, footer {
+      background: black !important;
+    }
+
+    #header {
+      & > div {
+        background: black !important;
+      }
+    }
+
+    article .border-l-4 {
+      border-color: yellow !important;
+    }
+
+    .more svg path {
+      fill: yellow;
+    }
+  }
 }
 
 body {
+  font-family: 'Roboto', sans-serif;
   margin: 0;
 }
 
@@ -16,31 +53,42 @@ main {
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto Slab', sans-serif;
 }
 
 a {
   text-decoration: none;
 }
 
-p {
-  margin-top: 0;
-}
+// .menu {
+//   a {
+//     color: $black;
+//   }
+// }
 
-.menu {
-  a {
-    color: $white;
+.content {
+  ol li {
+    list-style: decimal;
+    margin: 0 0 0 20px;
   }
-}
 
-.content ol li {
-  list-style: decimal;
-  margin: 0 0 0 20px;
-}
+  ul li {
+    list-style: disc;
+    margin: 0 0 0 20px;
+  }
 
-.content ul li {
-  list-style: disc;
-  margin: 0 0 0 20px;
+  p {
+    margin-bottom: .5rem;
+  }
+
+  a {
+    color: $primary;
+  }
+
+  h2 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+  }
 }
 
 

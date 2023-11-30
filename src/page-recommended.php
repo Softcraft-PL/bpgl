@@ -1,43 +1,31 @@
+<?php /* Template Name: Polecane książki */ ?>
+
 <?php get_header(); ?>
 
-<?php $term = get_queried_object(); ?>
+<?php
+$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+$args = array(
+    'post_type' => 'ksiazki',
+    'post_status' => 'publish',
+    'posts_per_page' => 4,
+    'paged' => $paged,
+    'meta_query'     => array(
+        array(
+            'key'   => 'recommended',
+            'value' => true,
+        ),
+    ),
+);
+$books = new WP_Query($args);
+?>
 
-<section class="py-20 lg:pb-32"> 
+<section class="pt-20 pb-20">
     <div class="container mx-auto px-[16px]">
-        <div class="grid grid-cols-12 gap-[30px]">
+        <div class="grid grid-cols-12 gap-5">
             <div class="col-span-12 lg:col-span-9 mb-10">
-                <h1 class="text-3xl lg:text-4xl font-bold mt-0 mb-10">Więcej dla: <?php single_term_title(); ?></h1>
-                <?php
-                    $tags = get_terms(array(
-                        'taxonomy' => 'tagi',
-                        'hide_empty' => false,
-                    ));
-                    if ($tags) {
-                        foreach ($tags as $tag) {
-                            $tag_link = get_tag_link($tag);
-                            echo '<a href="' . esc_url($tag_link) . '" class="inline-block text-black font-bold hover:text-[#f3701d] py-1 px-3 text-sm mr-2 mb-2 border border-l-4 border-[#f2f0ee] hover:border-l-[#f3701d] transition-all duration-200">' . esc_html($tag->name) . '</a>';
-                        }
-                    }
-                ?>
+                <h1 class="text-4xl font-bold m-0">Polecane książki</h1>
             </div>
         </div>
-
-        <?php
-        $args = array(
-            'post_status' => 'publish',
-            'tax_query' => array(
-                array(
-                    'taxonomy' => $term->taxonomy,
-                    'field'    => 'slug',
-                    'terms'    => $term->slug,
-                ),
-            ),
-            //'ignore_sticky_posts' => true
-        );
-        
-        ?>
-
-        <?php $books = new WP_Query($args); ?>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             <?php while ($books->have_posts()) : $books->the_post(); ?>
@@ -73,11 +61,9 @@
             </article>
 
             <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
 
-            </div>
-
-        <?php wp_reset_postdata(); ?>
-
+        </div>
     </div>
 </section>
 

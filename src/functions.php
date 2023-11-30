@@ -51,7 +51,7 @@ function setup() {
     //global $content_width;
     //if (!isset($content_width)) $content_width = 640;
     register_nav_menu('nav-menu',__('Main menu'));
-    register_nav_menu('nav-menu-footer-1',__('Menu w stopce'));
+    register_nav_menu('nav-menu-footer',__('Menu w stopce'));
 }
 
 

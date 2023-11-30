@@ -6,39 +6,41 @@
             <div class="col-span-12 lg:col-span-9">
                 <?php while (have_posts()) : the_post(); ?>
                     <article>
-                    <div class="grid grid-cols-12 lg:gap-10">
-                        <div class="col-span-12 lg:col-span-5">
-                        <?php if (has_post_thumbnail()) : ?>
-                            <div class="max-w-full h-auto">
-                            <?php the_post_thumbnail(array(830, 590), array('class' => 'border-radius-5 object-cover w-full h-[830px] float-left lg:float-none lg:ml-0 lg:mr-4 lg:mb-4'));
-                            ?>
-                            </div>
-                        <?php endif; ?>
-                        </div>
-
-                        <div class="col-span-12 lg:col-span-7">
-                        <div class="flex flex-col justify-center flex-1">
-                            <time class="block text-greyDark"><?php echo apply_filters('the_date', get_the_date()); ?></time>
-                            <h2 class="text-xl font-bold lg:text-3xl mt-0 mb-2"><?php the_title(); ?></h2>
-
-                            <?php if (has_excerpt()) : ?>
-                            <div class="font-light text-lg"><?php the_excerpt(); ?></div>
+                        <div class="grid grid-cols-12 lg:gap-10">
+                            <div class="col-span-12 lg:col-span-6">
+                            <?php if (has_post_thumbnail()) : ?>
+                                <div class="max-w-full h-auto">
+                                <?php the_post_thumbnail(array(830, 590), array('class' => 'border-radius-5 object-cover w-full h-[830px] float-left lg:float-none lg:ml-0 lg:mr-4 lg:mb-4'));
+                                ?>
+                                </div>
                             <?php endif; ?>
+                            </div>
 
-                            <div class="mt-2 text-black-light">
-                            <?php the_content(); ?>
+                            <div class="col-span-12 lg:col-span-6">
+                                <div class="flex flex-col justify-center flex-1">
+                                    <time class="block text-greyDark"><?php echo apply_filters('the_date', get_the_date()); ?></time>
+                                    <h2 class="text-xl font-bold lg:text-3xl mt-0 mb-2"><?php the_title(); ?></h2>
+                                    
+                                    <?php if (get_field('recommended')) : ?>
+                                    <div class="text-primary text-xl">POLECAMY DO PRZECZYTANIA</div>
+                                    <?php endif ?>
+
+                                    <?php if (has_excerpt()) : ?>
+                                    <div class="font-light text-lg"><?php the_excerpt(); ?></div>
+                                    <?php endif; ?>
+
+                                    <div class="mt-2 text-black-light">
+                                    <?php the_content(); ?>
+                                    </div>
+                                    
+                                    <?php if (get_field('borrow')) : ?>
+                                    <a href="<?php echo get_field('borrow'); ?>" target="_blank" class="bg-primary text-white text-lg p-2 mt-2 w-fit">Wypożycz książkę</a>
+                                    <?php endif ?>
+                                </div>
                             </div>
                         </div>
-                        </div>
-                    </div>
                     </article>
                 <?php endwhile; ?>
-
-                <?php $gallery = get_field('gallery'); ?>
-                <?php if ($gallery) : ?>
-                    <h2 class="text-2xl mt-4 mb-4">Relacja fotograficzna z wydarzenia</h2>
-                    <?php echo do_shortcode($gallery); ?>
-                <? endif ?>
             </div>
 
             <div class="col-span-12 lg:col-span-3">
@@ -58,11 +60,12 @@
                     ?>
                 </div>
                 <div class="my-4">
-                    <h2 class="text-2xl font-semibold mb-4">Najnowsze artykuły</h2>
+                    <h2 class="text-2xl font-semibold mb-4">Najnowsze książki</h2>
                     <?php
                     $current_post_id = get_the_ID();
 
                     $args = array(
+                        'post_type' => 'ksiazki',
                         'posts_per_page' => 3,
                         'post_status' => 'publish',
                         'order' => 'DESC',
@@ -78,7 +81,7 @@
                         <article class="mb-6">
                         <h3 class="text-lg font-semibold mb-2 hover:text-primary transition-all duration-200"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                         <p class="text-black-light text-md mb-2"><?php echo wp_trim_words(get_the_content(), 30, '...'); ?></p>
-                        <p class="text-primary text-xs">Opublikowany: <?php the_time('F j, Y'); ?></p>
+                        <p class="text-primary text-xs">Dodana: <?php the_time('F j, Y'); ?></p>
                         </article>
                     <?php
                         endwhile;
