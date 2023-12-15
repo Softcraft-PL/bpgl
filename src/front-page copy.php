@@ -111,7 +111,7 @@ $articleCounter = 1;
         <div class="grid grid-cols-2 gap-4">
             <div class="col-span-1 gap-4 flex order-2">
                 <div class="flex-1 flex flex-col gap-4">
-                    <section class="bg-[#f2f0ee] flex-1 md:flex" style="background: url(/wp-content/themes/bpgl/img/bg_books.webp); background-size:cover; color: white; padding: 1rem; flex-direction: column;">
+                    <section class="bg-[#f7f7f7] flex-1 md:flex" style="background: url(/wp-content/themes/bpgl/img/bg_books.webp); background-size:cover; color: white; padding: 1rem; flex-direction: column;">
                         <h2 class="text-4xl mb-8">Aktualne godziny otwarcia</h2>
                         <div class="grid grid-cols-2 gap-4">
                             <?php
@@ -128,7 +128,7 @@ $articleCounter = 1;
                             </div>
                         </div>
                     </section>
-                    <section style="padding: 1rem;" class="bg-[#f2f0ee] flex-1 md:flex">
+                    <section style="padding: 1rem;" class="bg-[#f7f7f7] flex-1 md:flex">
                         <a href="https://m6175.lib.mol.pl" target="_blank" title="Katalog biblioteczny Libra" style="width: 100%;display: flex;/*! justify-content: center; */align-items: center;text-align: center;flex-direction: column;">
                             <h2 style="color: #f3701d;font-size: 3rem;/*! font-weight: bold; */margin-bottom: 3rem;">Katalog książek online</h2><img alt="Katalog Libra" style="height: 100px; max-width: 100%; object-fit: contain" src="https://m6175.lib.mol.pl/themes/medley/img/libra_net.svg">
                         </a>     
@@ -139,7 +139,7 @@ $articleCounter = 1;
                 <section class="flex-1">
                     <div class="grid gap-4">
                         <?php while ($posts->have_posts()) : $posts->the_post(); ?>
-                            <article class="bg-[#f2f0ee] md:flex">
+                            <article class="bg-[#f7f7f7] md:flex">
                                 <div class="md:w-1/2">
                                     <?php the_post_thumbnail(array(465, 340), array('class' => 'border-radius-5 object-cover w-full h-[340px] min-h-')); ?>
                                 </div>
@@ -186,7 +186,7 @@ $articleCounter = 1;
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <?php while ($posts->have_posts()) : $posts->the_post(); ?>
-            <article class="bg-[#f2f0ee] md:flex order-<?php echo $articleCounter ?>">
+            <article class="bg-[#f7f7f7] md:flex order-<?php echo $articleCounter ?>">
                 <div class="md:w-1/2">
                     <?php the_post_thumbnail(array(465, 340), array('class' => 'border-radius-5 object-cover w-full h-[340px]')); ?>
                 </div>
@@ -234,7 +234,7 @@ $args = array(
 $books = new WP_Query($args);
 ?>
 
-<section class="pt-20 pb-20 bg-[#f2f0ee]">
+<section class="pt-20 pb-20 bg-[#f7f7f7]">
     <div class="container mx-auto px-[16px]">
         <div class="grid grid-cols-12 gap-[30px]">
             <div class="col-span-12 lg:col-span-9">
@@ -245,7 +245,7 @@ $books = new WP_Query($args);
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
             <?php while ($books->have_posts()) : $books->the_post(); ?>
 
-            <article class="relative bg-[#f2f0ee] group">
+            <article class="relative bg-[#f7f7f7] group">
                 <div class="relative h-0 pb-[calc(540/404*100%)] overflow-hidden">
                 <?php the_post_thumbnail(array(404, 540), array('class' => 'absolute top-0 left-0 w-full h-full object-cover')); ?>
                 </div>

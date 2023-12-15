@@ -24,7 +24,7 @@ $posts = new WP_Query($args);
                     if ($tags) {
                         foreach ($tags as $tag) {
                             $tag_link = get_tag_link($tag);
-                            echo '<a href="' . esc_url($tag_link) . '" class="inline-block text-black font-bold hover:text-[#f3701d] py-1 px-3 text-sm mr-2 mb-2 border border-l-4 border-[#f2f0ee] hover:border-l-[#f3701d] transition-all duration-200">' . esc_html($tag->name) . '</a>';
+                            echo '<a href="' . esc_url($tag_link) . '" class="inline-block text-black font-bold hover:text-[#f3701d] py-1 px-3 text-sm mr-2 mb-2 border border-l-4 border-[#f7f7f7] hover:border-l-[#f3701d] transition-all duration-200">' . esc_html($tag->name) . '</a>';
                         }
                     }
                 ?>
@@ -33,9 +33,9 @@ $posts = new WP_Query($args);
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
             <?php while ($posts->have_posts()) : $posts->the_post(); ?>
-                <article class="bg-[#f2f0ee] xl:flex">
+                <article class="bg-[#f7f7f7] xl:flex">
                     <div class="xl:w-1/2">
-                        <?php the_post_thumbnail(array(465, 340), array('class' => 'border-radius-5 object-cover w-full h-[250px] xl:h-[340px] min-h-full')); ?>
+                        <?php the_post_thumbnail(array(465, 340), array('class' => 'border-radius-5 object-cover w-full h-[250px] xl:h-[340px] min-h-full', 'title' => get_the_title())); ?>
                     </div>
                     <div class="flex flex-col xl:w-1/2 p-4 xl:pl-4">
                         <div class="border-l-4 border-[#f3701d] pl-4">

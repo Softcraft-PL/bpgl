@@ -1,16 +1,16 @@
 <?php get_header(); ?>
 
-<section class="content pt-10 lg:pt-20 pb-20 lg:pb-32">
+<section class="pt-10 lg:pt-20 pb-20 lg:pb-32">
     <div class="container mx-auto px-[16px]">
         <div class="grid grid-cols-12 lg:gap-10">
-            <div class="col-span-12 lg:col-span-9">
+            <div class="content col-span-12 lg:col-span-9">
                 <?php while (have_posts()) : the_post(); ?>
                     <article>
                     <div class="grid grid-cols-12 lg:gap-10">
                         <div class="col-span-12 lg:col-span-5">
                         <?php if (has_post_thumbnail()) : ?>
                             <div class="max-w-full h-auto">
-                            <?php the_post_thumbnail(array(830, 590), array('class' => 'border-radius-5 object-cover w-full h-[830px] float-left lg:float-none lg:ml-0 lg:mr-4 lg:mb-4'));
+                            <?php the_post_thumbnail(array(830, 590), array('class' => 'border-radius-5 object-cover w-full h-[830px] float-left lg:float-none lg:ml-0 lg:mr-4 lg:mb-4', 'title' => get_the_title()));
                             ?>
                             </div>
                         <?php endif; ?>
@@ -41,7 +41,7 @@
                 <? endif ?>
             </div>
 
-            <div class="col-span-12 lg:col-span-3">
+            <aside class="col-span-12 lg:col-span-3">
                 <div class="mb-4">
                     <h2 class="text-2xl font-semibold mb-4">Tagi</h2>
                     <?php
@@ -52,7 +52,7 @@
                     if ($tags) {
                         foreach ($tags as $tag) {
                         $tag_link = get_tag_link($tag);
-                        echo '<a href="' . esc_url($tag_link) . '" class="inline-block text-black font-bold hover:text-[#f3701d] py-1 px-3 text-sm mr-2 mb-2 border border-l-4 border-[#f2f0ee] hover:border-l-[#f3701d] transition-all duration-200">' . esc_html($tag->name) . '</a>';
+                        echo '<a href="' . esc_url($tag_link) . '" class="inline-block text-black font-bold hover:text-[#f3701d] py-1 px-3 text-sm mr-2 mb-2 border border-l-4 border-[#f7f7f7] hover:border-l-[#f3701d] transition-all duration-200">' . esc_html($tag->name) . '</a>';
                         }
                     }
                     ?>

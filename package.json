@@ -4,7 +4,7 @@
   "description": "BPGL",
   "main": "''",
   "dependencies": {
-    "npm": "^10.2.4"
+    "npm": "^10.2.5"
   },
   "devDependencies": {
     "gulp": "^4.0.2",

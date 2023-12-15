@@ -18,7 +18,7 @@
                     <div class="slide fade">
                         <img class="slider__img" height="650" src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($slide['slide_title']); ?>">
                         <div class="container container-slider">
-                            <div class="text p-4 bg-[rgba(0,0,0,.5)]">
+                            <div class="text p-8 bg-[rgba(0,0,0,.5)]">
                                 <?php if ($slide['slide_title']) : ?>
                                     <h2 class="text-white text-3xl lg:text-4xl mb-4"><?php echo esc_html($slide['slide_title']); ?></h1>
                                 <?php endif; ?>
@@ -115,7 +115,7 @@ $articleCounter = 1;
 <div class="pt-20 pb-20">
     <div class="container mx-auto px-[16px]">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-            <section class="bg-[#f2f0ee] flex-1 md:flex" style="background: url(/wp-content/themes/bpgl/img/bg_books.webp); background-size:cover; color: white; padding: 1rem; flex-direction: column;">
+            <section class="bg-[#f7f7f7] flex-1 md:flex" style="background: url(/wp-content/themes/bpgl/img/bg_books.webp); background-size:cover; color: white; padding: 2rem; flex-direction: column;">
                 <h1 class="text-3xl lg:text-4xl mb-8">Aktualne godziny otwarcia</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <?php
@@ -132,7 +132,7 @@ $articleCounter = 1;
                     </div>
                 </div>
             </section>
-            <section style="padding: 1rem;" class="bg-[#f2f0ee] flex-1 md:flex">
+            <section style="padding: 2rem;" class="bg-[#f7f7f7] flex-1 md:flex">
                 <a href="https://m6175.lib.mol.pl" target="_blank" title="Katalog biblioteczny" class="flex flex-col w-full">
                     <h1 class="text-3xl lg:text-4xl text-[#f3701d] mb-8 lg:mb-0">Katalog biblioteczny online</h2>
                     <img alt="Katalog Libra" class="m-auto" src="https://m6175.lib.mol.pl/themes/medley/img/libra_net.svg">
@@ -153,9 +153,9 @@ $articleCounter = 1;
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
             <?php while ($posts->have_posts()) : $posts->the_post(); ?>
-            <article class="bg-[#f2f0ee] xl:flex">
-                <div class="xl:w-1/2">
-                    <?php the_post_thumbnail(array(465, 340), array('class' => 'border-radius-5 object-cover w-full h-[250px] xl:h-[340px] min-h-full')); ?>
+            <article class="bg-[#f7f7f7] xl:flex">
+                <div class="xl:w-1/2 overflow-hidden">
+                    <?php the_post_thumbnail(array(465, 340), array('class' => 'border-radius-5 object-cover w-full h-[250px] xl:h-[340px] min-h-full transition-transform transform duration-400 grayscale-[25%] hover:grayscale-0 hover:scale-105', 'title' => get_the_title())); ?>
                 </div>
                 <div class="flex flex-col xl:w-1/2 p-4 xl:pl-4">
                     <div class="border-l-4 border-[#f3701d] pl-4">
@@ -201,7 +201,7 @@ $books = new WP_Query($args);
 ?>
 
 
-<section class="pt-20 pb-20 bg-[#f2f0ee]">
+<section class="pt-20 pb-20 bg-[#f7f7f7]">
     <div class="container mx-auto px-[16px]">
         <div class="grid grid-cols-12 gap-5">
             <div class="col-span-12 lg:col-span-9">
@@ -212,9 +212,9 @@ $books = new WP_Query($args);
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             <?php while ($books->have_posts()) : $books->the_post(); ?>
 
-            <article class="relative bg-[#f2f0ee] group">
+            <article class="relative bg-[#f7f7f7] group">
                 <div class="relative h-0 pb-[calc(540/404*100%)] overflow-hidden">
-                <?php the_post_thumbnail(array(404, 540), array('class' => 'absolute top-0 left-0 w-full h-full object-cover')); ?>
+                <?php the_post_thumbnail(array(404, 540), array('class' => 'absolute top-0 left-0 w-full h-full object-cover', 'title' => get_the_title())); ?>
                 </div>
                 <div class="absolute bottom-0 left-0 w-full bg-[rgba(27,27,27,.7)] text-white transition-bg duration-300 ease-in-out group-hover:bg-[#28272e]">
                 <div class="p-2">
@@ -262,9 +262,11 @@ $books = new WP_Query($args);
             for ($i = 1; $i <= 10; $i++) {
                 $logo = get_field('logo_' . $i);
                 if ($logo && $logo['logo']['url']) { ?>
+                <?php $alt_text = $logo['logo']['alt']; ?>
+                <?php $title = $logo['logo']['title']; ?>
                     <div class="p-4">
                         <?php if (!empty($logo['url'])) : ?><a href="<?php echo esc_url($logo['url']); ?>" target="_blank"><?php endif; ?>
-                            <img src="<?php echo esc_url($logo['logo']['url']); ?>" alt="Image" class="w-full h-[100px] object-contain rounded-lg">
+                            <img src="<?php echo esc_url($logo['logo']['url']); ?>" alt="<?php echo esc_attr($alt_text); ?>" title="<?php echo esc_attr($title); ?>" class="w-full h-[80px] object-contain rounded-lg">
                         <?php if (!empty($logo['url'])) : ?></a><?php endif; ?>
                     </div>
             <?php

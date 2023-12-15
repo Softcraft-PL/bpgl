@@ -12,12 +12,12 @@
 
         <div class="col-span-12 xl:col-span-6">
             <div class="col-span-12 xl:col-span-3">
-                <h2 class="text-lg mb-2">Linia</h2>
+                <h2 class="text-lg mb-2 font-bold">Linia</h2>
                 <div class="mb-2">
                     <?php echo $branch1['street']; ?><br>
                     <span><?php echo $branch1['post_code']; ?> <?php echo $branch1['city']; ?></span><br>
                     tel. <?php echo $branch1['phone']; ?><br>
-                    e-mail: <?php echo $branch1['email']; ?>
+                    e-mail: <a href="mailto:<?php echo $branch1['email']; ?>"><?php echo $branch1['email']; ?></a>
                 </div>
                 <div>
                     <div class="mb-1"><?php echo $branch1['hours_1']; ?></div>
@@ -25,12 +25,12 @@
                 </div>
             </div>
             <div class="col-span-12 xl:col-span-3 mt-6">
-                <h2 class="text-lg mb-2">Strzepcz</h2>
+                <h2 class="text-lg mb-2 font-bold">Strzepcz</h2>
                 <div class="mb-2">
                     <?php echo $branch2['street']; ?><br>
                     <span><?php echo $branch2['post_code']; ?> <?php echo $branch2['city']; ?></span><br>
                     tel. <?php echo $branch2['phone']; ?><br>
-                    e-mail: <?php echo $branch2['email']; ?>
+                    e-mail: <a href="mailto:<?php echo $branch2['email']; ?>"><?php echo $branch2['email']; ?></a>
                 </div>
                 <div>
                     <div class="mb-1"><?php echo $branch2['hours_1']; ?></div>

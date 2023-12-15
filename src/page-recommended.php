@@ -30,7 +30,7 @@ $books = new WP_Query($args);
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             <?php while ($books->have_posts()) : $books->the_post(); ?>
 
-            <article class="relative bg-[#f2f0ee] group">
+            <article class="relative bg-[#f7f7f7] group">
                 <div class="relative h-0 pb-[calc(540/404*100%)] overflow-hidden">
                 <?php the_post_thumbnail(array(404, 540), array('class' => 'absolute top-0 left-0 w-full h-full object-cover')); ?>
                 </div>

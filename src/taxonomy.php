@@ -15,7 +15,7 @@
                     if ($tags) {
                         foreach ($tags as $tag) {
                             $tag_link = get_tag_link($tag);
-                            echo '<a href="' . esc_url($tag_link) . '" class="inline-block text-black font-bold hover:text-[#f3701d] py-1 px-3 text-sm mr-2 mb-2 border border-l-4 border-[#f2f0ee] hover:border-l-[#f3701d] transition-all duration-200">' . esc_html($tag->name) . '</a>';
+                            echo '<a href="' . esc_url($tag_link) . '" class="inline-block text-black font-bold hover:text-[#f3701d] py-1 px-3 text-sm mr-2 mb-2 border border-l-4 border-[#f7f7f7] hover:border-l-[#f3701d] transition-all duration-200">' . esc_html($tag->name) . '</a>';
                         }
                     }
                 ?>
@@ -42,7 +42,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             <?php while ($books->have_posts()) : $books->the_post(); ?>
 
-            <article class="relative bg-[#f2f0ee] group">
+            <article class="relative bg-[#f7f7f7] group">
                 <div class="relative h-0 pb-[calc(540/404*100%)] overflow-hidden">
                 <?php the_post_thumbnail(array(404, 540), array('class' => 'absolute top-0 left-0 w-full h-full object-cover')); ?>
                 </div>
