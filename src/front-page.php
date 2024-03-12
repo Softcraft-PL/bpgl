@@ -18,7 +18,7 @@
                     <div class="slide fade">
                         <img class="slider__img" height="650" src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($slide['slide_title']); ?>">
                         <div class="container container-slider">
-                            <div class="text p-8 bg-[rgba(0,0,0,.5)]">
+                            <div class="text p-6 md:p-6 bg-[rgba(0,0,0,.5)]">
                                 <?php if ($slide['slide_title']) : ?>
                                     <h2 class="text-white text-3xl lg:text-4xl mb-4"><?php echo esc_html($slide['slide_title']); ?></h1>
                                 <?php endif; ?>
@@ -28,7 +28,7 @@
                                 <?php endif; ?>
 
                                 <?php if (isset($slide['slide_button']) && is_array($slide['slide_button'])) : ?>
-                                    <a class="bg-[#f3701d] text-white text-lg lg:text-xl p-2" href="<?php echo esc_url($slide['slide_button']['url']); ?>" target="<?php echo esc_attr($slide['slide_button']['target']); ?>"><?php echo esc_html($slide['slide_button']['title']); ?></a>
+                                    <a class="bg-[#f3701d] text-white text-lg lg:text-xl px-4 py-2" href="<?php echo esc_url($slide['slide_button']['url']); ?>" target="<?php echo esc_attr($slide['slide_button']['target']); ?>"><?php echo esc_html($slide['slide_button']['title']); ?></a>
                                 <?php endif; ?>
                             </div>
                         </div>
@@ -115,7 +115,7 @@ $articleCounter = 1;
 <div class="pt-20 pb-20">
     <div class="container mx-auto px-[16px]">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-            <section class="bg-[#f7f7f7] flex-1 md:flex" style="background: url(/wp-content/themes/bpgl/img/bg_books.webp); background-size:cover; color: white; padding: 2rem; flex-direction: column;">
+            <section class="text-white bg-primary flex-1 md:flex flex-col p-6 md:p-8 bg-cover">
                 <h1 class="text-3xl lg:text-4xl mb-8">Aktualne godziny otwarcia</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <?php
@@ -132,7 +132,7 @@ $articleCounter = 1;
                     </div>
                 </div>
             </section>
-            <section style="padding: 2rem;" class="bg-[#f7f7f7] flex-1 md:flex">
+            <section style="padding: 2rem;" class="bg-[#f7f7f7] flex-1 md:flex p-6 md:p-8">
                 <a href="https://m6175.lib.mol.pl" target="_blank" title="Katalog biblioteczny" class="flex flex-col w-full">
                     <h1 class="text-3xl lg:text-4xl text-[#f3701d] mb-8 lg:mb-0">Katalog biblioteczny online</h2>
                     <img alt="Katalog Libra" class="m-auto" src="https://m6175.lib.mol.pl/themes/medley/img/libra_net.svg">

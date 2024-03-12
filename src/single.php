@@ -10,7 +10,7 @@
                         <div class="col-span-12 lg:col-span-5">
                         <?php if (has_post_thumbnail()) : ?>
                             <div class="max-w-full h-auto">
-                            <?php the_post_thumbnail(array(830, 590), array('class' => 'border-radius-5 object-cover w-full h-[830px] float-left lg:float-none lg:ml-0 lg:mr-4 lg:mb-4', 'title' => get_the_title()));
+                            <?php the_post_thumbnail(array(830, 590), array('class' => 'border-radius-5 object-cover w-full h-[300px] lg:min-h-[600px] lg:h-auto float-left lg:float-none mb-4 lg:ml-0 lg:mr-4', 'title' => get_the_title()));
                             ?>
                             </div>
                         <?php endif; ?>
@@ -42,7 +42,7 @@
             </div>
 
             <aside class="col-span-12 lg:col-span-3">
-                <div class="mb-4">
+                <div class="mt-8 lg:mt-0 mb-4">
                     <h2 class="text-2xl font-semibold mb-4">Tagi</h2>
                     <?php
                     $tags = get_the_tags();
@@ -57,7 +57,7 @@
                     }
                     ?>
                 </div>
-                <div class="my-4">
+                <div class="mt-8 lg:mt-0 my-4">
                     <h2 class="text-2xl font-semibold mb-4">Najnowsze artykuły</h2>
                     <?php
                     $current_post_id = get_the_ID();

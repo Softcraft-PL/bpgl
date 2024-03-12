@@ -2,7 +2,7 @@
 
 <footer class="pt-20 lg:pt-32 pb-20 bg-[#f7f7f7] xl:bg-bg-footer bg-contain bg-no-repeat bg-right text-[#5e5e5e]">
     <div class="container mx-auto px-[16px]">
-        <h1 class="visually-hidden">Stopka</h3>
+        <h2 class="visually-hidden">Stopka</h2>
         <div class="grid grid-cols-12 gap-[30px]">
             <div class="col-span-12 xl:col-span-3">
                 <div title="Biblioteka Publiczna Gminy Linia">
@@ -31,7 +31,7 @@
             ?>
 
             <div class="col-span-12 xl:col-span-3">
-            <h2 class="text-lg mb-2 font-bold">Linia</h3>
+            <h3 class="text-lg mb-2 font-bold">Linia</h3>
                 <div class="mb-2">
                     <?php echo $branch1['street']; ?><br>
                     <span><?php echo $branch1['post_code']; ?> <?php echo $branch1['city']; ?></span><br>
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="col-span-12 xl:col-span-3">
-            <h2 class="text-lg mb-2 font-bold">Strzepcz</h3>
+            <h3 class="text-lg mb-2 font-bold">Strzepcz</h3>
                 <div class="mb-2">
                     <?php echo $branch2['street']; ?><br>
                     <span><?php echo $branch2['post_code']; ?> <?php echo $branch2['city']; ?></span><br>
