@@ -140,7 +140,7 @@ $articleCounter = 1;
             <section style="padding: 2rem;" class="bg-[#f7f7f7] flex-1 md:flex p-6 md:p-8">
                 <a href="https://m6175.lib.mol.pl" target="_blank" title="Katalog biblioteczny" class="flex flex-col w-full">
                     <h1 class="text-3xl lg:text-4xl text-[#f3701d] mb-8 lg:mb-0">Katalog biblioteczny online</h2>
-                    <img alt="Katalog Libra" class="m-auto" src="/wp-content/themes/bpgl/img/libra.svg">
+                    <img width="340" height="64" alt="Katalog Libra" class="m-auto" src="/wp-content/themes/bpgl/img/libra.svg">
                 </a>     
             </section>
         </div>
