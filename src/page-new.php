@@ -7,7 +7,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 $args = array(
     'post_type' => 'ksiazki',
     'post_status' => 'publish',
-    'posts_per_page' => 4,
+    'posts_per_page' => 12,
     'paged' => $paged,
 );
 $books = new WP_Query($args);
@@ -70,6 +70,21 @@ $books = new WP_Query($args);
             <?php wp_reset_postdata(); ?>
 
         </div>
+
+        <div class="grid grid-cols-12 gap-[30px]">
+            <div class="col-span-12 flex flex-col mt-20 mb-20">
+                <?php
+                    // manage pagination based on custom query
+                    $GLOBALS['wp_query']->max_num_pages = $books->max_num_pages;
+                    the_posts_pagination(array(
+                        'mid_size' => 1,
+                        'prev_text' => __( '‹', 'textdomain' ),
+                        'next_text' => __( '›', 'textdomain' )
+                    ));
+                ?>
+            </div>
+        </div>
+
     </div>
 </section>
 

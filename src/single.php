@@ -9,10 +9,12 @@
                     <div class="grid grid-cols-12 lg:gap-10">
                         <div class="col-span-12 lg:col-span-5">
                         <?php if (has_post_thumbnail()) : ?>
+                            <a href="<?php echo get_the_post_thumbnail_url() ?>" class="foobox">
                             <div class="max-w-full h-auto">
-                            <?php the_post_thumbnail(array(830, 590), array('class' => 'border-radius-5 object-cover w-full h-[300px] lg:min-h-[600px] lg:h-auto float-left lg:float-none mb-4 lg:ml-0 lg:mr-4', 'title' => get_the_title()));
+                            <?php the_post_thumbnail(array(830, 590), array('class' => 'border-radius-5 object-cover w-full h-[300px] lg:min-h-[400px] lg:h-auto float-left lg:float-none mb-4 lg:ml-0 lg:mr-4', 'title' => get_the_title()));
                             ?>
                             </div>
+                            </a>
                         <?php endif; ?>
                         </div>
 

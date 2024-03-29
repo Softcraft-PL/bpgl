@@ -3,29 +3,21 @@
 
 <head>
     <meta charset="<?php bloginfo('charset'); ?>"/>
+    <meta name="description" content="Biblioteka Publiczna Gminy Linia">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#6377FE">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/wp-content/themes/bpgl/img/icon-180.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/wp-content/themes/bpgl/img/icon-16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/wp-content/themes/bpgl/img/icon-32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/wp-content/themes/bpgl/img/icon-96.png">
 
     <link rel="stylesheet" href="/wp-content/themes/bpgl/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,500&display=swap" rel="stylesheet"> 
+    
     <?php wp_head(); ?>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX');
-    </script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -36,18 +28,17 @@
     <div class="flex w-full justify-end bg-grey p-[8px]">
         <div class="container mx-auto px-[16px]">
             <div class="top-icons flex items-center justify-end">
-                <a href="<?php echo get_field('bip', 225) ?>" title="Biuletyn Informacji Publicznej" target="_blank" rel="noopener noreferrer" class="text-white mr-[6px]">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="24"><path d="M10.58 4.07H0l10.58 10.74z" style="fill:#c00418" transform="translate(2 2)"/><path d="M39.57 4.07a5.81 5.81 0 0 0-5.81 5.81V18a1.42 1.42 0 0 0 2.84 0v-3.15a5.69 5.69 0 0 0 3 .85 5.82 5.82 0 1 0 0-11.63m0 8.78a3 3 0 1 1 3-3 3 3 0 0 1-3 3m-19-8.78a5.75 5.75 0 0 0-3 .85v-3.5a1.42 1.42 0 1 0-2.84 0v8.47a5.81 5.81 0 1 0 5.81-5.83m0 8.79a3 3 0 1 1 3-3 3 3 0 0 1-3 3m10.9.15c-.2-.1-.78-.39-.78-2.65V5.5a1.42 1.42 0 1 0-2.83 0v4.86c0 1.72.24 4.13 2.33 5.19a1.43 1.43 0 0 0 1.91-.64 1.41 1.41 0 0 0-.63-1.9m-2.19-9.88a1.57 1.57 0 1 0-1.57-1.56 1.56 1.56 0 0 0 1.57 1.56" class="cls-1" style="fill:#c00418" transform="translate(2 2)"/></svg>
-                </a>
-
                 <a href="<?php echo get_field('facebook', 225) ?>" title="Facebook" target="_blank" rel="noopener noreferrer" class="text-white mr-[8px]">
-                    <svg width="26px" height="26px" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="48px" height="48px"><linearGradient id="Ld6sqrtcxMyckEl6xeDdMa" x1="9.993" x2="40.615" y1="9.993" y2="40.615" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2aa4f4"/><stop offset="1" stop-color="#007ad9"/></linearGradient><path fill="#c00418" d="M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z"/><path fill="#fff" d="M26.707,29.301h5.176l0.813-5.258h-5.989v-2.874c0-2.184,0.714-4.121,2.757-4.121h3.283V12.46 c-0.577-0.078-1.797-0.248-4.102-0.248c-4.814,0-7.636,2.542-7.636,8.334v3.498H16.06v5.258h4.948v14.452 C21.988,43.9,22.981,44,24,44c0.921,0,1.82-0.084,2.707-0.204V29.301z"/></svg>
+                    <svg width="26px" height="26px" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="48px" height="48px"><linearGradient id="Ld6sqrtcxMyckEl6xeDdMa" x1="9.993" x2="40.615" y1="9.993" y2="40.615" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2aa4f4"/><stop offset="1" stop-color="#007ad9"/></linearGradient><path fill="url(#Ld6sqrtcxMyckEl6xeDdMa)" d="M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z"/><path fill="#fff" d="M26.707,29.301h5.176l0.813-5.258h-5.989v-2.874c0-2.184,0.714-4.121,2.757-4.121h3.283V12.46 c-0.577-0.078-1.797-0.248-4.102-0.248c-4.814,0-7.636,2.542-7.636,8.334v3.498H16.06v5.258h4.948v14.452 C21.988,43.9,22.981,44,24,44c0.921,0,1.82-0.084,2.707-0.204V29.301z"/></svg>
                 </a>
 
                 <a href="<?php echo get_field('youtube', 225) ?>" title="YouTube" target="_blank" rel="noopener noreferrer" class="text-white mr-[10px]">
                     <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -7 48 48"><path fill="#c00418" fill-rule="evenodd" d="m19.044 23.27-.002-13.582 12.97 6.814-12.968 6.768ZM47.52 7.334s-.47-3.33-1.908-4.798C43.786.61 41.74.601 40.803.49 34.086 0 24.011 0 24.011 0h-.022S13.914 0 7.197.49C6.258.6 4.214.61 2.387 2.535.948 4.003.48 7.334.48 7.334S0 11.247 0 15.158v3.668c0 3.912.48 7.823.48 7.823s.468 3.331 1.907 4.798c1.827 1.926 4.225 1.866 5.293 2.067C11.52 33.885 24 34 24 34s10.086-.015 16.803-.505c.938-.113 2.983-.122 4.809-2.048 1.438-1.467 1.908-4.798 1.908-4.798s.48-3.91.48-7.823v-3.668c0-3.911-.48-7.824-.48-7.824Z"/></svg>
                 </a>
-
+                
+                <a href="<?php echo get_field('bip', 225) ?>" title="Biuletyn Informacji Publicznej" target="_blank" rel="noopener noreferrer" class="text-white mr-[6px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="24"><path d="M10.58 4.07H0l10.58 10.74z" style="fill:#c00418" transform="translate(2 2)"/><path d="M39.57 4.07a5.81 5.81 0 0 0-5.81 5.81V18a1.42 1.42 0 0 0 2.84 0v-3.15a5.69 5.69 0 0 0 3 .85 5.82 5.82 0 1 0 0-11.63m0 8.78a3 3 0 1 1 3-3 3 3 0 0 1-3 3m-19-8.78a5.75 5.75 0 0 0-3 .85v-3.5a1.42 1.42 0 1 0-2.84 0v8.47a5.81 5.81 0 1 0 5.81-5.83m0 8.79a3 3 0 1 1 3-3 3 3 0 0 1-3 3m10.9.15c-.2-.1-.78-.39-.78-2.65V5.5a1.42 1.42 0 1 0-2.83 0v4.86c0 1.72.24 4.13 2.33 5.19a1.43 1.43 0 0 0 1.91-.64 1.41 1.41 0 0 0-.63-1.9m-2.19-9.88a1.57 1.57 0 1 0-1.57-1.56 1.56 1.56 0 0 0 1.57 1.56" class="cls-1" style="fill:#c00418" transform="translate(2 2)"/></svg>
+                </a>
                 <button onclick="toggleZoom()" title="Powiększ" class="accessability mr-[8px] text-[20px]">Aa</button>
                 <button onclick="toggleColor()" title="Zmień kontrast" class="accessability text-[yellow] text-[20px] w-[30px] h-[30px] rounded-full bg-black mr-[8px]">A</button>
             </div>

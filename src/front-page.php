@@ -50,8 +50,8 @@
         }
 
         if ($slidesWithTitle > 1) {
-            echo '<a class="prev" onclick="plusSlides(-1)">&#10094;</a>';
-            echo '<a class="next" onclick="plusSlides(1)">&#10095;</a>';
+            echo '<div class="prev" onclick="plusSlides(-1)">&#10094;</div>';
+            echo '<div class="next" onclick="plusSlides(1)">&#10095;</div>';
 
             echo '<div class="dots">';
             $slidesWithTitle = 0;
@@ -123,14 +123,19 @@ $articleCounter = 1;
                         $branch2 = get_field('branch_2', 225);
                     ?>
                     <div>
-                        <h3 class="text-xl lg:text-2xl mb-2">Linia</h3>
+                        <h2 class="text-xl lg:text-2xl mb-2">Linia</h3>
                         <p class="text-lg"><?php echo $branch1['hours_1']; ?><br><br><?php echo $branch1['hours_2']; ?></p>
                     </div>
                     <div>
-                        <h3 class="text-xl lg:text-2xl mb-2">Strzepcz</h3>
+                        <h2 class="text-xl lg:text-2xl mb-2">Strzepcz</h3>
                         <p class="text-lg"><?php echo $branch2['hours_1']; ?><br><br><?php echo $branch2['hours_2']; ?></p>
                     </div>
                 </div>
+                <?php if (get_field('extra_info', 225)) : ?>
+                <div class="grid grid-cols-1 text-lg mt-6">
+                    <?php echo get_field('extra_info', 225); ?>
+                </div>
+                <?php endif ?>
             </section>
             <section style="padding: 2rem;" class="bg-[#f7f7f7] flex-1 md:flex p-6 md:p-8">
                 <a href="https://m6175.lib.mol.pl" target="_blank" title="Katalog biblioteczny" class="flex flex-col w-full">
@@ -184,6 +189,9 @@ $articleCounter = 1;
             </article>
             <?php endwhile; ?>
         <?php wp_reset_postdata(); ?>
+        </div>
+        <div class="flex justify-end">
+            <a class="more mt-8 font-bold text-black hover:text-primary transition-all duration-200 flex" href="/aktualnosci">Zobacz wszystkie <svg class="ml-1 mt-[3px]" width="22" height="22" fill="#2A2A2A" xmlns="http://www.w3.org/2000/svg"><path d="M4.79 16.605a.75.75 0 0 1-.067-.984l.067-.077L15.397 4.938a.75.75 0 0 1 1.128.984l-.067.077L5.85 16.605a.75.75 0 0 1-1.06 0Z" fill="#2A2A2A"/><path d="M7.391 6.236a.75.75 0 0 1-.114-1.492l.11-.008 8.538-.018a.75.75 0 0 1 .744.64l.008.111-.018 8.538a.75.75 0 0 1-1.492.108l-.008-.11.016-7.786-7.784.017Z" fill="#2A2A2A"/></svg></a>
         </div>
     </div>
 </section>
@@ -245,6 +253,9 @@ $books = new WP_Query($args);
             <?php endwhile; ?>
             <?php wp_reset_postdata(); ?>
 
+        </div>
+        <div class="flex justify-end">
+            <a class="more mt-8 font-bold text-black hover:text-primary transition-all duration-200 flex" href="/nowosci-ksiazkowe">Zobacz wszystkie <svg class="ml-1 mt-[3px]" width="22" height="22" fill="#2A2A2A" xmlns="http://www.w3.org/2000/svg"><path d="M4.79 16.605a.75.75 0 0 1-.067-.984l.067-.077L15.397 4.938a.75.75 0 0 1 1.128.984l-.067.077L5.85 16.605a.75.75 0 0 1-1.06 0Z" fill="#2A2A2A"/><path d="M7.391 6.236a.75.75 0 0 1-.114-1.492l.11-.008 8.538-.018a.75.75 0 0 1 .744.64l.008.111-.018 8.538a.75.75 0 0 1-1.492.108l-.008-.11.016-7.786-7.784.017Z" fill="#2A2A2A"/></svg></a>
         </div>
     </div>
 </section>

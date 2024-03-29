@@ -71,3 +71,36 @@ footer {
 //     }
 // }
 
+
+.navigation.pagination {
+    display: flex;
+    justify-content: center;
+    
+    .page-numbers {
+        width: 48px;
+        height: 48px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        color: #000;
+        background: #F7F7F7;
+
+        &:hover {
+            border: 1px solid #000;
+        }
+
+        &.current {
+            background: $primary;
+            color: #fff;
+
+            &:hover {
+                border: none;
+            }
+        }
+    }
+  
+    .next, .prev {
+      font-weight: bold;
+    }
+}
+
