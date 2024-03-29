@@ -112,7 +112,7 @@
       position: absolute;
       top: 90px;
       width: 100%;
-      max-width: calc(100% - 60px);
+      max-width: calc(100% - 30px);
       @include font-size(30);
       line-height: 1.4;
       font-family: 'DM Sans', sans-serif;
@@ -208,7 +208,7 @@
     left: 50%;
     transform: translateX(-50%);
   
-    padding: 0 30px;
+    padding: 0 15px;
   
     @media (min-width: 640px) {
       padding: 0;
