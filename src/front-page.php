@@ -67,36 +67,39 @@
 </section>
 
 <script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
+    let slideIndex = 0;
+    let timeout;
+
+    showSlides();
 
     // Next/previous controls
     function plusSlides(n) {
+        clearTimeout(timeout);
         showSlides(slideIndex += n);
     }
 
-    // Thumbnail image controls
     function currentSlide(n) {
-        showSlides(slideIndex = n);
+        clearTimeout(timeout);
+        showSlides(slideIndex = n - 1);
     }
 
-    function showSlides(n) {
+    function showSlides() {
         let i;
         let slides = document.getElementsByClassName("slide");
         let dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
+        if (slideIndex >= slides.length) { slideIndex = 0; } // Reset slideIndex to the first slide if it exceeds the number of slides
+        if (slideIndex < 0) { slideIndex = slides.length - 1; } // Set slideIndex to the last slide if it goes below 0
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = "none";
         }
         for (i = 0; i < dots.length; i++) {
             dots[i].className = dots[i].className.replace(" active", "");
         }
-        slides[slideIndex-1].style.display = "flex";
-        if(dots[0]) {
-            dots[slideIndex-1].className += " active";
-        }
-
+        slides[slideIndex].style.display = "flex";
+		if(slideIndex) {
+			dots[slideIndex].className += " active";
+		}
+        timeout = setTimeout(function() { plusSlides(1); }, 3000);
     }
 </script>
 
