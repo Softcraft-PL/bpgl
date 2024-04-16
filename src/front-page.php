@@ -99,7 +99,7 @@
 		if(slideIndex) {
 			dots[slideIndex].className += " active";
 		}
-        timeout = setTimeout(function() { plusSlides(1); }, 3000);
+        timeout = setTimeout(function() { plusSlides(1); }, 6000);
     }
 </script>
 
